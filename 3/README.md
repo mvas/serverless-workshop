@@ -17,7 +17,7 @@ sure that only authenticated users have access to the User Profile Lambda functi
 - Once the function is created, scroll down to the Basic settings section, set the **Timeout** to 0 minutes, 30
 seconds. 
 - Set **Hander** to **UserProfile::UserProfile.Function::FunctionHandler**
-- Set the  **AUTH0_DOMAIN** and **ACCESS_TOKEN_PARAM_NAME** environment variables value to the ones you have from Auth0: 
+- Set the environment variables **AUTH0_DOMAIN** to domain from Auth0 and **ACCESS_TOKEN_PARAM_NAME** value to *accessToken* 
 - Set **AUTH_HEADER** environment variable to *Authorization*
 - Click the **Save** button at the top of the page
 - Now, to deploy a lambda, just run this command in Lambda's folder (`3\user-profile`):

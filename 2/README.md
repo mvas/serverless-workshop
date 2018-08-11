@@ -34,7 +34,7 @@ You’ll	need	to	create	a	free	auth0	account.	Visit	https://auth0.com and	follow
 - Enter	“**EU**” as	your **region**.
 - Click	**Next** and	fill	out	the	information	on	the	next	page.
 - Click	**Create	Account**.
-- Go	to	**Clients** in	the	left	navigation	menu,	and	click	on	the	**Default	App**.
+- Go	to	**Applications** in	the	left	navigation	menu,	and	click	on	the	**Default	App**.
 - Go	to	**Connections** in	the	**Default	App** menu,	and	make	sure	that	only	**Username-PasswordAuthentication** is	enabled
 - Go	to	**Settings** in	the	**Default	App** menu.
 - Scroll	down	until	you	find	the	textbox	called	**Allowed	Callback	URLs**.
