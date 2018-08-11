@@ -15,5 +15,5 @@
   "function-runtime":"dotnetcore2.1",
   "function-memory-size" : 256,
   "function-timeout" : 30,
-  "function-handler" : "MyFunc::MyFunc.Function::FunctionHandler"
+  "function-handler" : "VideoTranscoder::VideoTranscoder.Function::FunctionHandler"
 }

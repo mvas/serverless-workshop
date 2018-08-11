@@ -1,7 +1,7 @@
 var configConstants = {
     auth0: {
-        domain: 'superworkshop111.eu.auth0.com',
-        clientId: 'vZ20EWOUktA5g0_QuuEuMlqAC-12-Rr5'    
+        domain: 'YOUR_AUTH0_DOMAIN_HERE',
+        clientId: 'YOUR_AUTH0_CLIENT_ID_HERE'
     },
-    apiBaseUrl: 'https://sisshat2xg.execute-api.eu-west-1.amazonaws.com/devstage'
+    apiBaseUrl: 'YOUR_API_BASE_URL_HERE_NO_TRAILING_SLASH'
 };
