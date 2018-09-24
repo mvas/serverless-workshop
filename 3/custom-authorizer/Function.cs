@@ -47,12 +47,12 @@ namespace CustomAuthorizer
             Console.WriteLine("audience:" + auth0Audience);
             Console.WriteLine("token:" + jwtTokenString);
 
-            IConfigurationManager<OpenIdConnectConfiguration> configurationManager =
-                            new ConfigurationManager<OpenIdConnectConfiguration>($"https://{auth0Domain}/.well-known/openid-configuration", new OpenIdConnectConfigurationRetriever());
-            OpenIdConnectConfiguration openIdConfig = await configurationManager.GetConfigurationAsync(CancellationToken.None);
+            var configUrl = $"https://{auth0Domain}/.well-known/openid-configuration";
+            var configManager = new ConfigurationManager<OpenIdConnectConfiguration>(
+                configUrl, new OpenIdConnectConfigurationRetriever());
+            var openIdConfig = await configManager.GetConfigurationAsync(CancellationToken.None);
 
-            TokenValidationParameters validationParameters =
-                new TokenValidationParameters
+            var validationParameters = new TokenValidationParameters
                 {
                     ValidIssuer = $"https://{auth0Domain}/",
                     ValidAudiences = new[] { auth0Audience },
@@ -75,6 +75,11 @@ namespace CustomAuthorizer
                 Console.WriteLine("Failed authorization " + authEvent.AuthorizationToken);
                 return null;
             }
+            return GenerateAllowResponse(authEvent.MethodArn);
+        }
+
+        private APIGatewayCustomAuthorizerResponse GenerateAllowResponse(string resource)
+        {
             return new APIGatewayCustomAuthorizerResponse
             {
                 PrincipalID = "user",
@@ -87,7 +92,7 @@ namespace CustomAuthorizer
                                 {
                                     Action = new HashSet<string> { "execute-api:Invoke" },
                                     Effect = "allow",
-                                    Resource = new HashSet<string> { authEvent.MethodArn }
+                                    Resource = new HashSet<string> { resource }
                                 }
                             }
                 }
